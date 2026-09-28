@@ -24,8 +24,8 @@ bool subStr(char *check, char *string) {
 }
 
 int main() {
-    char s1[] = "Raiyan";
-    char c1[] = "ai";
+    char s1[] = "Sadat";
+    char c1[] = "Sad";
 
     if(subStr(c1, s1)) {
         printf("Substring");
