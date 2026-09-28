@@ -1,23 +1,24 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
-int main() {
+int main(void) {
     char str[101];
     int words = 0;
 
-    if(fgets(str, sizeof(str), stdin) == NULL) {
-        return 0;
+    printf("Enter a sentence: ");
+
+    if (fgets(str, sizeof str, stdin) == NULL) {
+        return 1;
     }
 
-    for(int i = 0; str[i] != '\0'; i++) {
-        if(str[i] == ' ') {
-            words++;
-        }
+    char *token = strtok(str, " \t\r\n");
+
+    while (token != NULL) {
+        words++;
+        token = strtok(NULL, " \t\r\n");
     }
 
-    int result = words + 1;
+    printf("Words: %d\n", words);
 
-    printf("%d", result);
     return 0;
 }
