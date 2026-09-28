@@ -2,36 +2,30 @@
 #include <string.h>
 #include <stdbool.h>
 
-bool subStr(char *check, char *string) {
-    int slen = strlen(string);
-    int clen = strlen(check);
-    int end = slen - clen + 1;
+int main(void) {
+    char a[100], b[100];
+    if(fgets(a, sizeof(a), stdin) == NULL) return 1;
+    if(fgets(b, sizeof(b), stdin) == NULL) return 1;
 
-    for(int i = 0; i < end; i++) {
-        bool check_found = true;
+    a[strcspn(a, "\n")] = '\0';
+    b[strcspn(b, "\n")] = '\0';
 
-        for(int j = 0; j < clen; j++) {
-            if(check[j] != string[i + j]) {
-                check_found = false;
+    int alen = strlen(a);
+    int blen = strlen(b);
+    bool reverse = true;
+
+    if(alen == blen) {
+        for(int i = 0, j = blen - 1; i < alen; i++, j--) {
+            if(a[i] != b[j]) {
+                reverse = false;
                 break;
             }
         }
-
-        if(check_found) return true;
     }
 
-    return false;
-}
-
-int main() {
-    char s1[] = "Raiyan";
-    char c1[] = "ai";
-
-    if(subStr(c1, s1)) {
-        printf("Substring");
+    if(reverse) {
+        printf("Reverse");
     } else {
-        printf("Not a substring");
+        printf("Not reverse");
     }
-    return 0;
-    
 }
