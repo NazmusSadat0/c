@@ -1,16 +1,28 @@
 #include <stdio.h>
 
-int sum_arr(int *a, int n) {
-    int sum = 0;
-    for(int i = 0; i < n; i++) {
-        sum += *(a + i);
+void find(int *a, int n, int *max, int *min) {
+    *min = *a;
+    *max = *a;
+
+    for(int i = 1; i < n; i++) {
+        if(*(a+i) > *min) {
+            *max = *(a+i);
+        } else {
+            *min = *(a+i);
+        }
     }
-    return sum;
 }
 
 int main() {
-    int a[] = {1,2};
+    int a[] = {1,2, 3};
     int n = sizeof(a) / sizeof(a[0]);
-    printf("%d", sum_arr(a, n));
+    int min;
+    int max;
+
+    find(a, n, &max, &min);
+
+    printf("Minimum: %d", min);
+    printf("Maximum: %d", max);
+    
     return 0;
 }
