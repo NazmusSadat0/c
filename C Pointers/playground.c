@@ -1,28 +1,16 @@
 #include <stdio.h>
 
-void find(int *a, int n, int *max, int *min) {
-    *min = *a;
-    *max = *a;
-
-    for(int i = 1; i < n; i++) {
-        if(*(a+i) > *min) {
-            *max = *(a+i);
-        } else {
-            *min = *(a+i);
+for(int i = 0; i < n - 1; i++) {
+    for(int j = 0; j < n - 1 - i; j++) {
+        if(*(a + j) > *(a + j + 1)) {
+            int temp = *(a + j);
+            *(a + j) = *(a + j + 1);
+            *(a + j + 1) = temp;
         }
     }
 }
 
 int main() {
-    int a[] = {1,2, 3};
-    int n = sizeof(a) / sizeof(a[0]);
-    int min;
-    int max;
-
-    find(a, n, &max, &min);
-
-    printf("Minimum: %d", min);
-    printf("Maximum: %d", max);
-    
-    return 0;
+    int arr[] = {10, 20, 30, 20, 50};
+    int n = sizeof(arr) / sizeof(arr[0]);
 }
