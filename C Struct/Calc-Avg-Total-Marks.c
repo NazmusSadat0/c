@@ -1,12 +1,14 @@
 #include <stdio.h>
 
+// Input : roll and three marks
+// Output : Total and Avg marks
+// USE STRUCT
+
 struct Student
 {
-    /* data */
     int roll;
     float marks[3];
 };
-
 
 int main() {
     struct Student s;
