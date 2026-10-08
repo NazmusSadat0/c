@@ -2,39 +2,15 @@
 
 struct Student
 {
-    /* data */
     int roll;
-    float marks[3];
+    char name[50];
+    float cgpa;
 };
 
-
 int main() {
-    struct Student s;
-    float total = 0;
-    float avg = 0;
+    struct Student s[100];
+    int n;
+    scanf("%d", &n);
 
-    printf("Enter roll: \n");
-    if(scanf("%d", &s.roll) != 1) {
-        printf("Empty\n");
-        return 1;
-    }
-
-    printf("Enter three marks: \n");
-
-    for(int i = 0; i < 3; i++) {
-        if(scanf("%f", &s.marks[i]) != 1) {
-            printf("Empty marks\n");
-        }
-
-        total += s.marks[i];
-    }
-
-    avg = total / 3;
-
-    printf("--------\n");
-    printf("Roll no: %d\n", s.roll);
-    printf("Total marks: %.2f\n", total);
-    printf("Average mark: %.2f\n", avg);
-
-    return 0;
+    scanf
 }
