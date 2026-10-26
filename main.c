@@ -1,31 +1,37 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include <stdbool.h>
 
-int main(void) {
-    char a[100], b[100];
-    if(fgets(a, sizeof(a), stdin) == NULL) return 1;
-    if(fgets(b, sizeof(b), stdin) == NULL) return 1;
+int main() {
+    int t;
+    scanf("%d", &t);
 
-    a[strcspn(a, "\n")] = '\0';
-    b[strcspn(b, "\n")] = '\0';
+    while(t--) {
+        int n;
+        scanf("%d", &n);
+        int count = 0;
+        int zero = 0;
+        int minusOne = 0;
 
-    int alen = strlen(a);
-    int blen = strlen(b);
-    bool reverse = true;
-
-    if(alen == blen) {
-        for(int i = 0, j = blen - 1; i < alen; i++, j--) {
-            if(a[i] != b[j]) {
-                reverse = false;
-                break;
+        while(n--) {
+            int x;
+            scanf("%d", &x);
+            if(x == 0) {
+                zero++;
+            } else if(x == -1) {
+                minusOne++;
             }
+
+            count = zero;
+
+            if(minusOne % 2 != 0) {
+                count += 1;
+            }
+
+            printf("%d", count);
         }
     }
-
-    if(reverse) {
-        printf("Reverse");
-    } else {
-        printf("Not reverse");
-    }
+    return 0;
+    
 }
