@@ -4,18 +4,18 @@
 #define RED "\033[1;31m"
 #define RESET "\033[0m"
 
-enum Menu
+typedef enum 
 {
     EXIT,
     ADD,
     SUBTRACT,
     MULTIPLY,
     DIVIDE
-};
+} Menu;
 
 int main(void)
 {
-    enum Menu choice;
+     Menu choice;
     int input;
     int a, b;
 
@@ -36,7 +36,7 @@ int main(void)
 
     if (scanf("%d", &input) == 1)
     {
-        choice = (enum Menu)input;
+        choice = (Menu)input;
     }
 
     switch (choice)
