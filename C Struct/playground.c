@@ -1,28 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-struct Emp {
-    char name[100];
-    int salary;
+struct Fraction {
+    int num;
+    int den;
 };
 
-// Return type changed to float to match the return value 'total'
-float add(struct Emp e[3]) {
-    float total = 0.0; // Initialized to 0.0
-    
-    for (int i = 0; i < 3; i++) {
-        // Added & before e[i].salary
-        scanf("%99s %d", e[i].name, &e[i].salary);
-        total += e[i].salary + (0.2f * e[i].salary);
-    }
-    
-    return total;
+struct Fraction add(struct Fraction a, struct Fraction b) {
+    struct Fraction result;
+
+    result.num = a.num * b.den + b.num * a.den;
+    result.den = a.den * b.den;
+
+    return result;
 }
 
-int main() {
-    struct Emp employees[3]; // Local array instead of global shadow variable
-    
-    float total_cost = add(employees);
-    printf("Total salary with 20%% bonus: %.2f\n", total_cost);
-    
+int main(void) {
+    struct Fraction f1 = {1, 2};
+    struct Fraction f2 = {3, 4};
+
+    struct Fraction sum = add(f1, f2);
+
+    printf("Sum = %d/%d\n", sum.num, sum.den);
+
     return 0;
+    
 }
