@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+// if we use *check instead of check[], the compiler cannot modify the array
+
 bool subStr(char *check, char *string) {
     int slen = strlen(string);
     int clen = strlen(check);
