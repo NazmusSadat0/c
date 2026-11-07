@@ -26,7 +26,7 @@ int main(void) {
     }
 
     while (position != NULL) {
-        printf("%td ", position - str);
+        printf("Substring starts from: %td ", position - str);
 
         position = strstr(position + 1, sub);
     }

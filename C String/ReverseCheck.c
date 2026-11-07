@@ -12,7 +12,7 @@ int main() {
     if(fgets(a, sizeof(a), stdin) == NULL) return 1;
     if(fgets(b, sizeof(b), stdin) == NULL) return 1;
 
-    a[strcspn(a, "\n")] = '\0';
+    a[strcspn(a, "\n")] = '\0'; // removes the trailing of newline after using fgets
     b[strcspn(b, "\n")] = '\0';
 
     int alen = strlen(a);

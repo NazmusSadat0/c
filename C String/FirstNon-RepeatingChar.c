@@ -18,7 +18,6 @@ int main() {
             found = true;
             break;
         }
-       
     }
 
     if(!found) {
