@@ -2,16 +2,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main() {
-    char word[101];
-    scanf("%100s", word);
-    int len = strlen(word);
-    char newWord[101];
+void reverseStr(char *str) {
+    int left = 0;
+    int right = strlen(str) - 1;
 
-    for(int i = len - 1, j = 0; j < len; i--, j++) {
-        newWord[j] = word[i];
+    while(left < right) {
+        char temp = str[left];
+        str[left] = str[right];
+        str[right] = temp;
+
+        left++;
+        right--;
     }
+}
 
-    printf("Reversed String: %s", newWord);
+int main(void) {
+    printf("Enter a string to reverse: ");
+    char str[100];
+    scanf("%99s", str);
+    reverseStr(str);
+    printf("Reversed string: %s", str);
     return 0;
 }
